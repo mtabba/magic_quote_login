@@ -1,11 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
-import {
-  saveUserSession,
-  saveUserQuotes,
-  getUserQuotes,
-  getUserSession,
-} from '../utils/localStorageOps';
+import { getUserSession } from '../utils/localStorageOps';
 
 const LoginForm = ({ onSignUp, onLoggedIn }) => {
   const [loginData, setLoginData] = useState({
@@ -33,20 +28,8 @@ const LoginForm = ({ onSignUp, onLoggedIn }) => {
         loginData.email === userData.email &&
         loginData.password === userData.password
       ) {
-        // console.log('Logged in successfully');
         onLoggedIn(userData.name);
-
-        // saveUserSession('currentUser', userData.email);
-
-        debugger;
-        setUserQuotes(getUserQuotes(loginData.email));
-
-        // const currentUser = getUserSession('currentUser');
-        // console.log('ye user hai: ', userQuotes);
-        // if (currentUser) {
-        // }
-
-        // Handle successful login (redirect or set state)
+        setUserQuotes(getUserSession(loginData.email));
       } else {
         setError('Invalid email or password. Please try again.');
       }
@@ -85,36 +68,6 @@ const LoginForm = ({ onSignUp, onLoggedIn }) => {
           </button>
         </div>
       </form>
-      {/* <form>
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={loginData.email}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={loginData.password}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="button-container">
-          <button type="button" formAction="submit" onClick={handleLogin}>
-            Login
-          </button>
-          <button type="button" onClick={onSignUp}>
-            Register
-          </button>
-        </div>
-      </form> */}
     </div>
   );
 };

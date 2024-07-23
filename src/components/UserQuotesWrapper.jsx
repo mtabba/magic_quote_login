@@ -1,19 +1,14 @@
 import { useEffect, useState, useContext } from 'react';
-import {
-  saveUserQuotes,
-  getUserQuotes,
-  getUserSession,
-} from '../utils/localStorageOps';
+// import {} from '../utils/localStorageOps';
 import SearchAndSave from './SearchAndSave';
 import ShowUserQuote from './ShowUserQuote';
 import { UserContext } from '../contexts/UserContext';
 import '../App.css';
 
 const UserQuotesWrapper = () => {
-  const [userSaveData, setUserSaveData] = useState();
   const [userQuoteDisplay, setUserQuoteDisplay] = useState([]);
 
-  const [userQuotes, setUserQuotes] = useContext(UserContext);
+  const [userQuotes] = useContext(UserContext);
 
   const [searchButton, setSearchButton] = useState(false);
   const [searcheditem, setSearchedItem] = useState('');
@@ -21,21 +16,21 @@ const UserQuotesWrapper = () => {
   // -----------Save Logic --------------
   useEffect(() => {
     // -------- Get Current User From Local Storage------
-    console.log('ye user hai Wrapper: ', userQuotes);
-    setUserQuoteDisplay([...userQuotes]);
+    if (userQuotes.quotes) {
+      setUserQuoteDisplay([...userQuotes.quotes]);
+    }
   }, [userQuotes]);
   //---------- Search Logic------------
   useEffect(() => {
-    let found = userQuoteDisplay.filter((item) =>
+    const found = userQuoteDisplay.filter((item) =>
       item.toLowerCase().includes(searcheditem.toLowerCase())
     );
     setFoundItem(found);
-  }, [searcheditem]);
+  }, [searcheditem, userQuoteDisplay]);
 
   return (
     <div className="userQuoteContainer">
       <SearchAndSave
-        saveData={setUserSaveData}
         searchButtonClicked={setSearchButton}
         setSearchedItem={setSearchedItem}
       />

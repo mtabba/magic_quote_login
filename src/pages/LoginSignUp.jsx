@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import SignUpForm from '../components/SignUpForm';
 import { useNavigate, NavLink } from 'react-router-dom';
@@ -9,7 +9,6 @@ import '../App.css';
 const LoginSignUp = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  // const [showSignUp, setShowSignUp] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ const LoginSignUp = () => {
   };
 
   const handleLogin = (userName) => {
-    // console.log('Perform login');
     navigate(`/Home/${userName}`);
   };
 

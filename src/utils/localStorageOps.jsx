@@ -1,13 +1,10 @@
-// src/utils/localStorageHelper.js
-
 export const saveUserQuotes = (userName, quotes) => {
   localStorage.setItem(userName, JSON.stringify(quotes));
 };
 
 export const getUserQuotes = (email) => {
-  return JSON.parse(localStorage.getItem(email))?.quotes || [];
+  return JSON.parse(localStorage.getItem(email)) || [];
 };
-
 export const saveUserSession = (user, data) => {
   localStorage.setItem(user, JSON.stringify(data));
 };

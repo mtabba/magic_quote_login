@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import NavBar from '../components/Navbar';
 import QuoteCard from '../components/QuoteCard';
 import UserQuotesWrapper from '../components/UserQuotesWrapper';
-import { useParams } from 'react-router-dom';
-import { getUserSession, getUserQuotes } from '../utils/localStorageOps';
+import { useNavigate, useParams } from 'react-router-dom';
+import { saveUserSession } from '../utils/localStorageOps';
 import '../App.css';
+import { UserContext } from '../contexts/UserContext';
 
 const Home = () => {
   const { id: userName } = useParams();
-  const [userData, setUserData] = useState({});
+  const navigate = useNavigate();
+  const [userQuotes] = useContext(UserContext);
 
   // ------------------States-------------
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -17,7 +19,13 @@ const Home = () => {
     if (userName) {
       setIsSignedIn(true);
     }
-  }, [userName, userData]);
+  }, [userName]);
+
+  const handleSignOut = () => {
+    setIsSignedIn(false);
+    saveUserSession(userQuotes.email, userQuotes);
+    navigate(`/`);
+  };
 
   const handleSignOut = () => {
     setIsSignedIn(false);

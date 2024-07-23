@@ -4,7 +4,6 @@ import { UserContext } from '../contexts/UserContext';
 import '../App.css';
 
 const SearchAndSave = ({
-  saveData,
   searchData,
   searchButtonClicked,
   setSearchedItem,
@@ -19,8 +18,12 @@ const SearchAndSave = ({
   };
 
   const handleSaveButton = () => {
-    // saveData(inputFieldValue);
-    setUserQuotes([...userQuotes, inputFieldValue]);
+    if (inputFieldValue && inputFieldValue.trim().length) {
+      setUserQuotes({
+        ...userQuotes,
+        quotes: [...userQuotes.quotes, inputFieldValue],
+      });
+    }
     setInputFieldValue('');
   };
 

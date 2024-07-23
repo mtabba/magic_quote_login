@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { saveUserSession } from '../utils/localStorageOps';
 
 const SignUpForm = ({ onLogin }) => {
+  const [error, setError] = useState('');
   const [signUpData, setSignUpData] = useState({
     name: '',
     email: '',
@@ -15,20 +16,18 @@ const SignUpForm = ({ onLogin }) => {
   };
 
   const handleSignUp = () => {
-    saveUserSession(signUpData.email, signUpData);
-    // console.log(
-    //   'Signed up with:',
-    //   signUpData.name,
-    //   signUpData.email,
-    //   signUpData.password
-    // );
-    // Navigate back to login form after successful registration
-    onLogin();
+    if (signUpData.email === '' && signUpData.password === '') {
+      setError('Email and password are must to enter.');
+    } else {
+      saveUserSession(signUpData.email, signUpData);
+      onLogin();
+    }
   };
 
   return (
     <div className="form-container">
       <h2>Sign Up</h2>
+      {error && <p className="error-message">{error}</p>}
       <form action="submit">
         <div className="form-group">
           <label>Name</label>

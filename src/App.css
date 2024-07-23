@@ -34,7 +34,7 @@ button:focus-visible {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width:100vw;
+  /* width:100vw; */
   height: 5rem;
   background-color: #282c34;
   color:rgba(255, 255, 255, 0.87);
@@ -123,6 +123,8 @@ button:focus-visible {
 
 .magicQuoteContainer{
   display: flex;
+  width: 30rem;
+  max-width: 35rem;
   flex-direction: column;
   place-items:center ;
 }
