@@ -1,0 +1,143 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  margin: 0 0.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width:100vw;
+  height: 5rem;
+  background-color: #282c34;
+  color:rgba(255, 255, 255, 0.87);
+  .loginInfo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+
+
+/* App.css */
+
+.loginSignUpContainer {
+  max-width: 400px;
+  margin: 10vh auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #242424;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  background-color: #242424;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+
+.error-message {
+  margin-top: 10px;
+  padding: 8px;
+  background-color:#ccc;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  color: #721c24;
+}
+
+
+
+
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 70vh;
+  justify-content: space-evenly;
+  margin: 2rem;
+  align-items: center;
+}
+
+.magicQuoteContainer{
+  display: flex;
+  flex-direction: column;
+  place-items:center ;
+}
+
+.userQuoteContainer{
+  display: flex;
+  flex-direction: column;
+  input{
+    border-radius: 5px;
+    font-size: 1.5rem;
+    }
+}
+.showQuoteContainer{
+  width: 20rem;
+  height: 20rem;
+  overflow-y:scroll ;
+  border: 1px solid;
+}
