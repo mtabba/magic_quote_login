@@ -27,10 +27,6 @@ const Home = () => {
     navigate(`/`);
   };
 
-  const handleSignOut = () => {
-    setIsSignedIn(false);
-  };
-
   return (
     <>
       <NavBar
