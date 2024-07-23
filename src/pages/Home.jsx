@@ -19,11 +19,15 @@ const Home = () => {
     }
   }, [userName, userData]);
 
+  const handleSignOut = () => {
+    setIsSignedIn(false);
+  };
+
   return (
     <>
       <NavBar
         onSignIn={() => setIsSignedIn(true)}
-        onSignOut={() => setIsSignedIn(false)}
+        onSignOut={handleSignOut}
         isSignedIn={isSignedIn}
         userName={userName}
       />
