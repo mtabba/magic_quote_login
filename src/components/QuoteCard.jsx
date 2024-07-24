@@ -24,7 +24,7 @@ const QuoteCard = () => {
           setError('Something Went Wrong.');
         }
       };
-      debugger;
+      // debugger;
       fetchQuotes();
     } else {
       setAllQuotes(quotes);
