@@ -3,6 +3,7 @@ import { saveUserSession } from '../utils/localStorageOps';
 
 const SignUpForm = ({ onLogin }) => {
   const [error, setError] = useState('');
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const [signUpData, setSignUpData] = useState({
     name: '',
     email: '',
@@ -16,8 +17,10 @@ const SignUpForm = ({ onLogin }) => {
   };
 
   const handleSignUp = () => {
-    if (signUpData.email === '' && signUpData.password === '') {
+    if (!signUpData.email || !signUpData.password) {
       setError('Email and password are must to enter.');
+    } else if (!emailPattern.test(signUpData.email)) {
+      setError('Invalid Email');
     } else {
       saveUserSession(signUpData.email, signUpData);
       onLogin();

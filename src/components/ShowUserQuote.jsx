@@ -1,13 +1,23 @@
+import { useState, useContext, useEffect } from 'react';
+import { UserContext } from '../contexts/UserContext';
+
 import '../assets/close.svg';
 import '../App.css';
 
-const UserQuotes = ({
-  quotes,
-  searchButton,
-  setSearchButton,
-  setDeleteItemIndex,
-}) => {
-  const handleDelete = () => {};
+const UserQuotes = ({ quotes, searchButton, setSearchButton }) => {
+  const [userQuotes, setUserQuotes] = useContext(UserContext);
+  const [deleteItemIndex, setDeleteItemIndex] = useState(null);
+
+  useEffect(() => {
+    if (deleteItemIndex !== null) {
+      const quotesUpdated = userQuotes.quotes.filter(
+        (item, index) => index !== deleteItemIndex
+      );
+      setUserQuotes({ ...userQuotes, quotes: quotesUpdated });
+      setDeleteItemIndex(null);
+    }
+  }, [deleteItemIndex]);
+
   return (
     <div className="showQuoteContainer">
       <div className="listUserQuote">
@@ -15,7 +25,10 @@ const UserQuotes = ({
           {quotes.map((quote, index) => (
             <li key={index}>
               {quote}
-              <button onClick={handleDelete(index)} className="deleteButton">
+              <button
+                onClick={() => setDeleteItemIndex(index)}
+                className="deleteButton"
+              >
                 x
               </button>
             </li>

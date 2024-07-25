@@ -10,7 +10,6 @@ const UserQuotesWrapper = () => {
   const [userQuoteDisplay, setUserQuoteDisplay] = useState([]);
   const navigate = useNavigate();
   const [userQuotes, setUserQuotes] = useContext(UserContext);
-  const [deleteItemIndex, setDeleteItemIndex] = useState(null);
   const [searchButton, setSearchButton] = useState(false);
   const [searcheditem, setSearchedItem] = useState('');
   const [foundItem, setFoundItem] = useState([]);
@@ -21,11 +20,8 @@ const UserQuotesWrapper = () => {
       navigate(`/`);
     } else {
       setUserQuoteDisplay([...userQuotes.quotes]);
-      if (deleteItemIndex !== null) {
-        console.log(deleteItemIndex);
-      }
     }
-  }, [userQuotes, deleteItemIndex]);
+  }, [userQuotes]);
   //---------- Search Logic------------
   useEffect(() => {
     const found = userQuoteDisplay.filter((item) =>
@@ -47,10 +43,7 @@ const UserQuotesWrapper = () => {
           setSearchButton={setSearchButton}
         />
       ) : (
-        <ShowUserQuote
-          quotes={userQuoteDisplay}
-          setDeleteItemIndex={setDeleteItemIndex}
-        />
+        <ShowUserQuote quotes={userQuoteDisplay} />
       )}
     </div>
   );
