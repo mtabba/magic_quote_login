@@ -144,10 +144,10 @@ button:focus-visible {
   .listUserQuote{
     ul{
       width: 80%;
-      text-align: justify;
     }
 
     li{
+      overflow-wrap:anywhere;
       display: flex;
       justify-content: space-between;
     }
