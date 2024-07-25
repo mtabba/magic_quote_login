@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
-// import { saveUserQuotes, getUserQuotes } from '../utils/localStorageOps';
 import '../App.css';
 
 const SearchAndSave = ({

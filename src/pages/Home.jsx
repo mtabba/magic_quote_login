@@ -18,6 +18,8 @@ const Home = () => {
   useEffect(() => {
     if (userName) {
       setIsSignedIn(true);
+    } else {
+      setIsSignedIn(false);
     }
   }, [userName]);
 

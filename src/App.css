@@ -134,8 +134,43 @@ button:focus-visible {
     }
 }
 .showQuoteContainer{
+  display: flex;
+  flex-direction: column;
   width: 20rem;
   height: 20rem;
   overflow-y:scroll ;
-  border: 1px solid;
+  margin-top: 1rem;
+  /* border: 1px solid; */
+  .listUserQuote{
+    ul{
+      width: 80%;
+    }
+
+    li{
+      line-break: anywhere;
+      display: flex;
+      justify-content: space-between;
+    }
+    .deleteButton{
+      border-radius: 5px;
+      border: 1px solid transparent;
+      padding: 0.1em 0.3em;
+      margin: 0 0.1em;
+      /* font-size: 1em;
+      font-weight: 400;
+      font-family: inherit;
+      background-color: #1a1a1a; */
+      cursor: pointer;
+      transition: border-color 0.25s;
+      
+      
+    }
+    .deleteButton:hover {
+      border-color: #646cff;
+    }
+  }
+  .showAllButton{
+    margin-left:1rem ;
+
+  }
 }
