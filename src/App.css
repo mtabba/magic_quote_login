@@ -10,6 +10,10 @@ body {
   background-size: cover;
   background-image: url('./assets/background.png');
 }
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 button {
   border-radius: 8px;
@@ -37,7 +41,7 @@ button:focus-visible {
   align-items: center;
   /* width:100vw; */
   height: 5rem;
-  background-color: #282c34;
+  background-color: #010202;
   color:rgba(255, 255, 255, 0.87);
   .loginInfo{
     display: flex;
