@@ -12,20 +12,20 @@ You can view the live application [here](https://magic-quote-login.vercel.app/).
 
 Displays a random "magic quote" and the user's saved quotes if they are signed in.
 
-![alt text](image.png)
+![alt text](./src/assets/image.png)
 
 ### 2. Login/Sign Up Page
 
 Allows users to log in or sign up to access their saved quotes.
 
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](./src//assets/image-1.png)
+![alt text](./src/assets/image-2.png)
 
 ### 3. User Quotes Page
 
 Displays the user's saved quotes with options to save new quotes and search through existing ones.
 
-![alt text](image-3.png)
+![alt text](./src/assets/image-3.png)
 
 ## Tools and Technology
 
