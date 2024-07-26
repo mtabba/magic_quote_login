@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
-import '../assets/close.svg';
 import '../App.css';
 
 const UserQuotes = ({ quotes, searchButton, setSearchButton }) => {
