@@ -21,6 +21,8 @@ const SignUpForm = ({ onLogin }) => {
       setError('Email and password are must to enter.');
     } else if (!emailPattern.test(signUpData.email)) {
       setError('Invalid Email');
+    } else if (signUpData.password.length < 7) {
+      setError('Password should be atleast 7 characters');
     } else {
       saveUserSession(signUpData.email, signUpData);
       onLogin();
