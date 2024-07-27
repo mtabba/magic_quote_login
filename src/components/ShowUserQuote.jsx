@@ -1,6 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
-
 import '../App.css';
 
 const UserQuotes = ({ quotes, searchButton, setSearchButton }) => {
@@ -22,8 +21,8 @@ const UserQuotes = ({ quotes, searchButton, setSearchButton }) => {
       <div className="listUserQuote">
         <ul>
           {quotes.map((quote, index) => (
-            <li key={index}>
-              {quote}
+            <li key={index} className="quoteCard">
+              <p>{quote}</p>
               <button
                 onClick={() => setDeleteItemIndex(index)}
                 className="deleteButton"
