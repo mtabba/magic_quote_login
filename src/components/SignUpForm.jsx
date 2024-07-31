@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { saveUserSession } from '../utils/localStorageOps';
 
 const SignUpForm = ({ onLogin }) => {
@@ -17,13 +17,14 @@ const SignUpForm = ({ onLogin }) => {
   };
 
   const handleSignUp = () => {
-    if (!signUpData.email || !signUpData.password) {
-      setError('Email and password are must to enter.');
+    if (!signUpData.name || !signUpData.email || !signUpData.password) {
+      setError('Name, email and password are must to enter.');
     } else if (!emailPattern.test(signUpData.email)) {
       setError('Invalid Email');
     } else if (signUpData.password.length < 7) {
       setError('Password should be atleast 7 characters');
     } else {
+      setError('You have been registered Successfully');
       saveUserSession(signUpData.email, signUpData);
       onLogin();
     }

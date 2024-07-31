@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, NavLink, useParams } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 import SignUpForm from '../components/SignUpForm';
-import { useNavigate, NavLink } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
 import '../App.css';
 
@@ -36,7 +35,12 @@ const LoginSignUp = () => {
         {isSignIn ? (
           <LoginForm onSignUp={handleSignUpClick} onLoggedIn={handleLogin} />
         ) : (
-          <SignUpForm onLogin={() => setIsSignIn(true)} />
+          <SignUpForm
+            onLogin={() => {
+              alert('You have been registered Successfully');
+              setIsSignIn(true);
+            }}
+          />
         )}
       </div>
     </div>

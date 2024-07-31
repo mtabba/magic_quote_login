@@ -12,7 +12,3 @@ export const saveUserSession = (user, data) => {
 export const getUserSession = (user) => {
   return JSON.parse(localStorage.getItem(user));
 };
-
-export const clearUserSession = () => {
-  localStorage.removeItem('user');
-};

@@ -9,10 +9,9 @@ const LoginForm = ({ onSignUp, onLoggedIn }) => {
   });
   const [userData, setUserData] = useState({});
   const [error, setError] = useState('');
-  const [userQuotes, setUserQuotes] = useContext(UserContext);
+  const [, setUserQuotes] = useContext(UserContext);
 
   useEffect(() => {
-    // debugger;
     if (loginData.password) {
       setUserData(getUserSession(loginData.email));
     }

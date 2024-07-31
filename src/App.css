@@ -111,9 +111,6 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: 2rem;
-  align-items: center;
-
 }
 
 .magicQuoteContainer{
@@ -122,6 +119,8 @@ button:focus-visible {
   max-width: 35rem;
   flex-direction: column;
   place-items:center ;
+  margin-top: 18vh;
+
 }
 
 .userQuoteContainer{

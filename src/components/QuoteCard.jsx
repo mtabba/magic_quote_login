@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// import { getRandomQuote } from '../utils/getQuote';
 import '../App.css';
 
 const QuoteCard = () => {
-  const REACT_APP_API_URL = 'https://type.fit/api/quotes';
+  const REACT_APP_API_URL = import.meta.env.VITE_API_URL;
   const [generate, setGenerate] = useState(false);
   const [error, setError] = useState('');
   const [allQuotes, setAllQuotes] = useState([]);

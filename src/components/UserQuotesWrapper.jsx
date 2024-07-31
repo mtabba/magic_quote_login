@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-// import {getUserSession} from '../utils/localStorageOps';
+import { useNavigate } from 'react-router-dom';
 import SearchAndSave from './SearchAndSave';
 import ShowUserQuote from './ShowUserQuote';
 import { UserContext } from '../contexts/UserContext';
@@ -9,7 +8,7 @@ import '../App.css';
 const UserQuotesWrapper = () => {
   const [userQuoteDisplay, setUserQuoteDisplay] = useState([]);
   const navigate = useNavigate();
-  const [userQuotes, setUserQuotes] = useContext(UserContext);
+  const [userQuotes] = useContext(UserContext);
   const [searchButton, setSearchButton] = useState(false);
   const [searcheditem, setSearchedItem] = useState('');
   const [foundItem, setFoundItem] = useState([]);
